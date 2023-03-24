@@ -7,6 +7,30 @@
 
 import Foundation
 
-class CollectionSearchViewModel{
+protocol CollectionDelegate: AnyObject{
+    func sendQuery()-> String
+    func sendPage()-> String
+    func sendPerPage()-> String
+}
+
+class CollectionSearchViewModel: NSObject, CollectionDelegate{
+    var query = ""
+    var page = ""
+    var perPage = ""
     
+    override init(){
+        super.init()
+    }
+    
+    func sendQuery() -> String {
+        return self.query
+    }
+    
+    func sendPage() -> String {
+        return self.page
+    }
+    
+    func sendPerPage() -> String {
+        return self.perPage
+    }
 }
