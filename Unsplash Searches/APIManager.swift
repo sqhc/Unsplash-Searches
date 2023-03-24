@@ -30,6 +30,24 @@ class APIManager{
         task.resume()
     }
     
+    func decodeRequest(url: String, option: Request, complete: @escaping(_ success: Bool, _ result: Any?, _ errorMessage: String?)->()){
+        switch option {
+        case .collection:
+            decodeCollection(url: url, complete: { success, collection, error in
+                if success{
+                    complete(true, collection, nil)
+                }
+                else{
+                    complete(false, nil, error)
+                }
+            })
+        case .photo:
+            decodePhoto()
+        case .user:
+            decodeUser()
+        }
+    }
+    
     func decodeCollection(url: String, complete: @escaping(_ success: Bool, _ collection: Collections?, _ errorMessage: String?)->()){
         getData(url: url){ success, data in
             if success{
@@ -48,5 +66,13 @@ class APIManager{
                 complete(false, nil, "The GET Request failed")
             }
         }
+    }
+    
+    func decodePhoto(){
+        
+    }
+    
+    func decodeUser(){
+        
     }
 }
