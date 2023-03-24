@@ -20,6 +20,7 @@
 		06DE6D7E29CD1A0600610C84 /* CollectionDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06DE6D7D29CD1A0600610C84 /* CollectionDataModel.swift */; };
 		06DE6D8029CD1EB800610C84 /* Globals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06DE6D7F29CD1EB800610C84 /* Globals.swift */; };
 		06DE6D8329CD251D00610C84 /* CollectionSearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06DE6D8229CD251D00610C84 /* CollectionSearchViewModel.swift */; };
+		06DE6D8529CD5C0A00610C84 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06DE6D8429CD5C0A00610C84 /* APIManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		06DE6D7D29CD1A0600610C84 /* CollectionDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionDataModel.swift; sourceTree = "<group>"; };
 		06DE6D7F29CD1EB800610C84 /* Globals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Globals.swift; sourceTree = "<group>"; };
 		06DE6D8229CD251D00610C84 /* CollectionSearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionSearchViewModel.swift; sourceTree = "<group>"; };
+		06DE6D8429CD5C0A00610C84 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +120,7 @@
 				06DE6D5129CBFB4500610C84 /* Unsplash_Searches.xcdatamodeld */,
 				06DE6D7F29CD1EB800610C84 /* Globals.swift */,
 				06DE6D8229CD251D00610C84 /* CollectionSearchViewModel.swift */,
+				06DE6D8429CD5C0A00610C84 /* APIManager.swift */,
 			);
 			path = "Unsplash Searches";
 			sourceTree = "<group>";
@@ -278,6 +281,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				06DE6D8529CD5C0A00610C84 /* APIManager.swift in Sources */,
 				06DE6D8329CD251D00610C84 /* CollectionSearchViewModel.swift in Sources */,
 				06DE6D4D29CBFB4400610C84 /* ViewController.swift in Sources */,
 				06DE6D5329CBFB4500610C84 /* Unsplash_Searches.xcdatamodeld in Sources */,

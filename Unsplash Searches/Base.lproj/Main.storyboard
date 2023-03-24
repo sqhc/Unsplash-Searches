@@ -68,14 +68,90 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Topic:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h0r-a8-dd5">
+                                <rect key="frame" x="20" y="88" width="53" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="N7l-f7-ogM">
+                                <rect key="frame" x="81" y="83" width="313" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="313" id="iAx-vn-vJd"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Start page:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eZX-LU-6Oe">
+                                <rect key="frame" x="20" y="171" width="97" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8qq-2n-20B">
+                                <rect key="frame" x="125" y="166" width="97" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="97" id="0wM-cA-9de"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Amount per page:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cbx-Qv-Zog">
+                                <rect key="frame" x="20" y="241" width="157" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HIL-sR-24Z">
+                                <rect key="frame" x="189" y="236" width="97" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="97" id="hdr-oP-DC1"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="smU-Gw-Pzn">
+                                <rect key="frame" x="161.5" y="358" width="91" height="31"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="magnifyingglass" catalog="system" title="Search"/>
+                                <connections>
+                                    <action selector="search:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Rv5-Qo-x4w"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" systemColor="systemGray2Color"/>
+                        <constraints>
+                            <constraint firstItem="N7l-f7-ogM" firstAttribute="leading" secondItem="h0r-a8-dd5" secondAttribute="trailing" constant="8" symbolic="YES" id="6bZ-Vp-G2v"/>
+                            <constraint firstItem="eZX-LU-6Oe" firstAttribute="top" secondItem="h0r-a8-dd5" secondAttribute="bottom" constant="59" id="A1p-hj-hUJ"/>
+                            <constraint firstItem="eZX-LU-6Oe" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="AOS-rP-lhp"/>
+                            <constraint firstItem="h0r-a8-dd5" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="Fe0-HG-eGG"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="N7l-f7-ogM" secondAttribute="trailing" constant="20" id="I9h-TB-chv"/>
+                            <constraint firstItem="smU-Gw-Pzn" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-74.5" id="RqZ-zZ-VTq"/>
+                            <constraint firstItem="Cbx-Qv-Zog" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="WFS-jE-dpe"/>
+                            <constraint firstItem="8qq-2n-20B" firstAttribute="leading" secondItem="eZX-LU-6Oe" secondAttribute="trailing" constant="8" symbolic="YES" id="ade-7b-xN4"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="HIL-sR-24Z" secondAttribute="trailing" constant="128" id="bgh-Kx-AGf"/>
+                            <constraint firstItem="HIL-sR-24Z" firstAttribute="leading" secondItem="Cbx-Qv-Zog" secondAttribute="trailing" constant="12" id="c9d-VF-XsA"/>
+                            <constraint firstItem="Cbx-Qv-Zog" firstAttribute="top" secondItem="eZX-LU-6Oe" secondAttribute="bottom" constant="46" id="c9m-TJ-5bv"/>
+                            <constraint firstItem="8qq-2n-20B" firstAttribute="top" secondItem="N7l-f7-ogM" secondAttribute="bottom" constant="49" id="cZb-T5-6ly"/>
+                            <constraint firstItem="HIL-sR-24Z" firstAttribute="top" secondItem="8qq-2n-20B" secondAttribute="bottom" constant="36" id="eKl-6o-tbE"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="8qq-2n-20B" secondAttribute="trailing" constant="192" id="gBT-E9-9kL"/>
+                            <constraint firstItem="smU-Gw-Pzn" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="iie-Za-59n"/>
+                            <constraint firstItem="N7l-f7-ogM" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="83" id="rNB-Oj-CfA"/>
+                            <constraint firstItem="h0r-a8-dd5" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="x75-Dy-cJz"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Search for collections" id="VDq-XI-3QA"/>
+                    <connections>
+                        <outlet property="pageTextField" destination="8qq-2n-20B" id="VsS-ua-c4S"/>
+                        <outlet property="perPageTextField" destination="HIL-sR-24Z" id="4bx-eF-2cv"/>
+                        <outlet property="queryTextField" destination="N7l-f7-ogM" id="IWc-kv-T2h"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-717" y="461"/>
+            <point key="canvasLocation" x="-717.39130434782612" y="460.71428571428567"/>
         </scene>
         <!--Search for photos-->
         <scene sceneID="Oui-nO-se8">
@@ -129,10 +205,14 @@
     </scenes>
     <resources>
         <image name="books.vertical.fill" catalog="system" width="128" height="109"/>
+        <image name="magnifyingglass" catalog="system" width="128" height="115"/>
         <image name="person" catalog="system" width="128" height="117"/>
         <image name="photo.artframe" catalog="system" width="128" height="93"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray2Color">
+            <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
