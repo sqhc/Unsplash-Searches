@@ -23,4 +23,12 @@ class CollectionsCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
+    var cellViewModel: CollectionsCellViewModel?{
+        didSet{
+            collectionTitleLabel.text = cellViewModel?.title
+            collectionIDLabel.text = cellViewModel?.id
+            collectionDescriptionLabel.text = cellViewModel?.description
+            collectionPublishTimeLabel.text = cellViewModel?.publishTime
+        }
+    }
 }

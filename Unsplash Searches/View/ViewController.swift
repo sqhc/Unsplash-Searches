@@ -31,13 +31,14 @@ class ViewController: UIViewController {
     
     @IBAction func search(_ sender: UIButton){
         if viewModel.query == ""{
-            let alertView = UIAlertController(title: "No topic", message: "The topic should be empty, please fill in.", preferredStyle: .alert)
+            let alertView = UIAlertController(title: "No topic", message: "The topic shouldn't be empty, please fill in.", preferredStyle: .alert)
             let alertAction = UIAlertAction(title: "Okay", style: .cancel, handler: nil)
             alertView.addAction(alertAction)
             self.present(alertView, animated: true, completion: nil)
         }
-        if let vc = self.storyboard?.instantiateViewController(withIdentifier: "SearchCollection") as? CollectionsTableView{
-            navigationController?.pushViewController(vc, animated: true)
+        if let vc = storyboard?.instantiateViewController(withIdentifier: "CollectionTable") as? CollectionsTableView{
+            vc.viewModel.delegate = self.viewModel
+            self.navigationController?.pushViewController(vc, animated: true)
         }
     }
 }

@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Dispatch
 
 class CollectionsTableViewModel: NSObject{
     var currentPage = 0
@@ -15,28 +16,43 @@ class CollectionsTableViewModel: NSObject{
     }
     
     func formAPI(){
-        searchCollectionsLink += "&\(delegate.sendQuery())"
+        searchCollectionsLink += "&query=\(delegate.sendQuery())"
         let perpage = delegate.sendPerPage()
         let page = delegate.sendPage()
         if perpage != ""{
-            searchCollectionsLink += "&\(perpage)"
+            searchCollectionsLink += "&per_page=\(perpage)"
         }
         if page != ""{
-            searchCollectionsLink += "&\(page)"
+            searchCollectionsLink += "&page=\(page)"
         }
     }
     
     func getCollections(complete: @escaping (_ errorMessage: String)->()){
-        APIManager().decodeRequest(url: searchCollectionsLink, option: .collection, complete: {
-            [weak self] success, collection, message in
-            if success{
-                let collections = collection as! Collections
-                self?.fetchCollection(collections: collections.results)
-            }
-            else{
-                complete(message!)
-            }
-        })
+        formAPI()
+        print(searchCollectionsLink)
+        DispatchQueue.global(qos: .background).async{
+            APIManager().decodeRequest(url: searchCollectionsLink, option: .collection, complete: {
+                [weak self] success, collection, message in
+                if success{
+                    let collections = collection as! Collections
+                    self?.fetchCollection(collections: collections.results)
+                }
+                else{
+                    complete(message!)
+                }
+            })
+        }
+//        formAPI()
+//        APIManager().decodeRequest(url: searchCollectionsLink, option: .collection, complete: {
+//            [weak self] success, collection, message in
+//            if success{
+//                let collections = collection as! Collections
+//                self?.fetchCollection(collections: collections.results)
+//            }
+//            else{
+//                complete(message!)
+//            }
+//        })
     }
     
     var reloadTableView: (()->Void)?
@@ -50,8 +66,14 @@ class CollectionsTableViewModel: NSObject{
     func fetchCollection(collections: [Collection]){
         var vms = [CollectionsCellViewModel]()
         for collection in collections {
-            vms.append(createCellModel(title: collection.title!, id: collection.id!, description: collection.description!, publish: collection.published_at!, link: (collection.links?.photos!)!))
+            let title = collection.title ?? "Unknown"
+            let id = collection.id ?? "Unknown"
+            let description = collection.description ?? "Unknown"
+            let publish = collection.published_at ?? "Unknown"
+            let link = (collection.links?.photos!)!
+            vms.append(createCellModel(title: title, id: id, description: description, publish: publish, link: link))
         }
+        collectionsCellModels = vms
     }
     
     func createCellModel(title: String, id: String, description: String, publish: String, link: String)-> CollectionsCellViewModel{
