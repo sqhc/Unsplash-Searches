@@ -19,6 +19,11 @@ class ViewController: UIViewController {
         pageTextField.delegate = self
         perPageTextField.delegate = self
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        searchCollectionsLink = "https://api.unsplash.com/search/collections?client_id=pyMs87cvZKpi4JmARh-uebHiGE14Ahepb89fQmJ0cvw"
+    }
 
     var viewModel = {
         CollectionSearchViewModel()

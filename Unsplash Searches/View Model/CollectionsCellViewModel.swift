@@ -6,3 +6,11 @@
 //
 
 import Foundation
+
+struct CollectionsCellViewModel{
+    var title: String?
+    var id: String?
+    var description: String?
+    var publishTime: String?
+    var photoLink: String?
+}
