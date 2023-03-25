@@ -51,13 +51,10 @@ extension ViewController: UITextFieldDelegate{
         switch textField{
         case queryTextField:
             viewModel.query = value
-            print(viewModel.query)
         case pageTextField:
             viewModel.page = value
-            print(viewModel.page)
         case perPageTextField:
             viewModel.perPage = value
-            print(viewModel.perPage)
         default:
             return true
         }

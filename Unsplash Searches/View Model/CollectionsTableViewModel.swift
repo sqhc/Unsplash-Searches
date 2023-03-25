@@ -29,7 +29,6 @@ class CollectionsTableViewModel: NSObject{
     
     func getCollections(complete: @escaping (_ errorMessage: String)->()){
         formAPI()
-        print(searchCollectionsLink)
         DispatchQueue.global(qos: .background).async{
             APIManager().decodeRequest(url: searchCollectionsLink, option: .collection, complete: {
                 [weak self] success, collection, message in
@@ -42,17 +41,6 @@ class CollectionsTableViewModel: NSObject{
                 }
             })
         }
-//        formAPI()
-//        APIManager().decodeRequest(url: searchCollectionsLink, option: .collection, complete: {
-//            [weak self] success, collection, message in
-//            if success{
-//                let collections = collection as! Collections
-//                self?.fetchCollection(collections: collections.results)
-//            }
-//            else{
-//                complete(message!)
-//            }
-//        })
     }
     
     var reloadTableView: (()->Void)?
