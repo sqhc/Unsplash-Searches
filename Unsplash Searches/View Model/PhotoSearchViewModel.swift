@@ -7,7 +7,14 @@
 
 import Foundation
 
-class PhotoSearchViewModel: NSObject{
+protocol PhotoSearchVMDelegate: AnyObject{
+    func getQuery()-> String
+    func getPage()-> String
+    func getPerPage()-> String
+    func getOrder()-> String
+}
+
+class PhotoSearchViewModel: NSObject, PhotoSearchVMDelegate{
     var query = ""
     var page = ""
     var perPage = ""
@@ -15,5 +22,21 @@ class PhotoSearchViewModel: NSObject{
     
     override init() {
         super.init()
+    }
+    
+    func getQuery() -> String {
+        return self.query
+    }
+    
+    func getPage() -> String {
+        return self.page
+    }
+    
+    func getPerPage() -> String {
+        return self.perPage
+    }
+    
+    func getOrder() -> String {
+        return self.order
     }
 }
