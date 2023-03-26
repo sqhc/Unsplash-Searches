@@ -8,6 +8,11 @@
 import Foundation
 
 class PhotoSearchViewModel: NSObject{
+    var query = ""
+    var page = ""
+    var perPage = ""
+    var order = ""
+    
     override init() {
         super.init()
     }

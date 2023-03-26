@@ -9,7 +9,7 @@ import Foundation
 import Dispatch
 
 class CollectionsTableViewModel: NSObject{
-    var currentPage = 0
+    var currentPage = 1
     weak var delegate: CollectionDelegate!
     override init() {
         super.init()
@@ -24,6 +24,7 @@ class CollectionsTableViewModel: NSObject{
         }
         if page != ""{
             searchCollectionsLink += "&page=\(page)"
+            currentPage = Int(page) ?? 1
         }
     }
     

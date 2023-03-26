@@ -8,11 +8,17 @@
 import UIKit
 
 class SearchPhotosView: UIViewController {
-
+    @IBOutlet weak var queryTextField: UITextField!
+    @IBOutlet weak var pageTextField: UITextField!
+    @IBOutlet weak var perPageTextField: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        queryTextField.delegate = self
+        pageTextField.delegate = self
+        perPageTextField.delegate = self
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -33,9 +39,43 @@ class SearchPhotosView: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    @IBAction func order(_ sender: UISegmentedControl){
+        switch sender.selectedSegmentIndex{
+        case 0:
+            viewModel.order = "relevant"
+        case 1:
+            viewModel.order = "latest"
+        default:
+            viewModel.order = ""
+        }
+    }
+    
     @IBAction func random(_ sender: UIButton){
         if let vc = storyboard?.instantiateViewController(withIdentifier: "RandomPhoto") as? RandomPhotoView{
             self.navigationController?.pushViewController(vc, animated: true)
         }
+    }
+    
+    @IBAction func search(_ sender: UIButton){
+        
+    }
+}
+
+extension SearchPhotosView: UITextFieldDelegate{
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        guard let value = textField.text else{
+            return true
+        }
+        switch textField{
+        case queryTextField:
+            viewModel.query = value
+        case pageTextField:
+            viewModel.page = value
+        case perPageTextField:
+            viewModel.perPage = value
+        default:
+            return true
+        }
+        return true
     }
 }
