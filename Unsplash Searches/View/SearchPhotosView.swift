@@ -57,7 +57,16 @@ class SearchPhotosView: UIViewController {
     }
     
     @IBAction func search(_ sender: UIButton){
-        
+        if viewModel.query == ""{
+            let alertView = UIAlertController(title: "No topic", message: "The topic shouldn't be empty, please fill in.", preferredStyle: .alert)
+            let alertAction = UIAlertAction(title: "Okay", style: .cancel, handler: nil)
+            alertView.addAction(alertAction)
+            self.present(alertView, animated: true, completion: nil)
+        }
+        if let vc = storyboard?.instantiateViewController(withIdentifier: "PhotosCollection") as? SearchedPhotosCollectionView{
+            vc.viewModel.delegate = self.viewModel
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
     }
 }
 
