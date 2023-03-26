@@ -30,6 +30,7 @@
 		06DE6D9729CFD6DE00610C84 /* PhotoSearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06DE6D9629CFD6DE00610C84 /* PhotoSearchViewModel.swift */; };
 		06DE6D9929CFE46A00610C84 /* RandomPhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06DE6D9829CFE46A00610C84 /* RandomPhotoView.swift */; };
 		06DE6D9B29CFE68A00610C84 /* RandomPhotoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06DE6D9A29CFE68900610C84 /* RandomPhotoViewModel.swift */; };
+		06DE6D9D29D079DD00610C84 /* SearchedPhotoDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06DE6D9C29D079DD00610C84 /* SearchedPhotoDataModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +78,7 @@
 		06DE6D9629CFD6DE00610C84 /* PhotoSearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoSearchViewModel.swift; sourceTree = "<group>"; };
 		06DE6D9829CFE46A00610C84 /* RandomPhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomPhotoView.swift; sourceTree = "<group>"; };
 		06DE6D9A29CFE68900610C84 /* RandomPhotoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomPhotoViewModel.swift; sourceTree = "<group>"; };
+		06DE6D9C29D079DD00610C84 /* SearchedPhotoDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchedPhotoDataModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,6 +167,7 @@
 			children = (
 				06DE6D7D29CD1A0600610C84 /* CollectionDataModel.swift */,
 				06DE6D9229CFB3AB00610C84 /* RandomPhotoDataModel.swift */,
+				06DE6D9C29D079DD00610C84 /* SearchedPhotoDataModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -331,6 +334,7 @@
 				06DE6D4D29CBFB4400610C84 /* ViewController.swift in Sources */,
 				06DE6D9729CFD6DE00610C84 /* PhotoSearchViewModel.swift in Sources */,
 				06DE6D8929CDEE4200610C84 /* CollectionsCell.swift in Sources */,
+				06DE6D9D29D079DD00610C84 /* SearchedPhotoDataModel.swift in Sources */,
 				06DE6D9929CFE46A00610C84 /* RandomPhotoView.swift in Sources */,
 				06DE6D5329CBFB4500610C84 /* Unsplash_Searches.xcdatamodeld in Sources */,
 				06DE6D8029CD1EB800610C84 /* Globals.swift in Sources */,
