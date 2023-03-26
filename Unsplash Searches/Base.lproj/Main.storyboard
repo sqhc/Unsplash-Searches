@@ -40,7 +40,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DPL-V5-CUJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1067" y="-261"/>
+            <point key="canvasLocation" x="1625" y="-261"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="tcx-cl-dtC">
@@ -281,14 +281,30 @@
         <!--Search for photos-->
         <scene sceneID="Oui-nO-se8">
             <objects>
-                <viewController storyboardIdentifier="SearchPhoto" id="GUu-aM-o3s" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SearchPhoto" id="GUu-aM-o3s" customClass="SearchPhotosView" customModule="Unsplash_Searches" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jAS-YM-Kbq">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y0N-Wg-fqB">
+                                <rect key="frame" x="141" y="88" width="134" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="linkColor"/>
+                                <color key="tintColor" systemColor="systemRedColor"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="questionmark" catalog="system" title="Random Photo"/>
+                                <connections>
+                                    <action selector="random:" destination="GUu-aM-o3s" eventType="touchUpInside" id="f0k-Uv-4D7"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="nyt-WU-Wdg"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" systemColor="systemTealColor"/>
                     </view>
                     <navigationItem key="navigationItem" title="Search for photos" id="3Qs-Rl-p1P"/>
+                    <connections>
+                        <segue destination="si6-IP-86O" kind="show" identifier="showRandom" id="KOe-W0-pP7"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ITv-eO-RhY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -325,7 +341,37 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="58y-8P-QgT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1067" y="461"/>
+            <point key="canvasLocation" x="1625" y="461"/>
+        </scene>
+        <!--Random photo-->
+        <scene sceneID="aqz-0X-pMw">
+            <objects>
+                <viewController storyboardIdentifier="RandomPhoto" id="si6-IP-86O" customClass="RandomPhotoView" customModule="Unsplash_Searches" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Kqp-n8-hu4">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Dxx-qk-Y02">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="jxu-le-SWO"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="jxu-le-SWO" firstAttribute="bottom" secondItem="Dxx-qk-Y02" secondAttribute="bottom" id="9bV-pW-Hay"/>
+                            <constraint firstItem="Dxx-qk-Y02" firstAttribute="top" secondItem="jxu-le-SWO" secondAttribute="top" id="NZy-5e-qjm"/>
+                            <constraint firstItem="jxu-le-SWO" firstAttribute="trailing" secondItem="Dxx-qk-Y02" secondAttribute="trailing" id="Wjz-ty-kbV"/>
+                            <constraint firstItem="Dxx-qk-Y02" firstAttribute="leading" secondItem="jxu-le-SWO" secondAttribute="leading" id="gc2-wv-L6q"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Random photo" id="nEi-Kq-nJC"/>
+                    <connections>
+                        <outlet property="randomImageView" destination="Dxx-qk-Y02" id="HUV-kG-G86"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="STv-RU-MKt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="897" y="1187"/>
         </scene>
     </scenes>
     <resources>
@@ -333,11 +379,21 @@
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>
         <image name="person" catalog="system" width="128" height="117"/>
         <image name="photo.artframe" catalog="system" width="128" height="93"/>
+        <image name="questionmark" catalog="system" width="96" height="128"/>
+        <systemColor name="linkColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemGray2Color">
             <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemTealColor">
+            <color red="0.18823529411764706" green="0.69019607843137254" blue="0.7803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

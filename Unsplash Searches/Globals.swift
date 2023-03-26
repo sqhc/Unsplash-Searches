@@ -10,6 +10,7 @@ import Foundation
 enum Request{
     case collection
     case photo
+    case randomPhoto
     case user
 }
 
