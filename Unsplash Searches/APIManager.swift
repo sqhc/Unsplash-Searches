@@ -42,7 +42,14 @@ class APIManager{
                 }
             })
         case .photo:
-            decodePhoto()
+            decodePhoto(url: url, complete: { success, photos, error in
+                if success{
+                    complete(true, photos, nil)
+                }
+                else{
+                    complete(false, nil, error)
+                }
+            })
         case .user:
             decodeUser()
         case .randomPhoto:
@@ -77,8 +84,24 @@ class APIManager{
         }
     }
     
-    func decodePhoto(){
-        
+    func decodePhoto(url: String, complete: @escaping(_ success: Bool, _ photos: SearchedPhotos?, _ errorMessage: String?)->()){
+        getData(url: url){ success, data in
+            if success{
+                if let data = data {
+                    do{
+                        let decoder = JSONDecoder()
+                        let model = try decoder.decode(SearchedPhotos.self, from: data)
+                        complete(true, model, nil)
+                    }
+                    catch{
+                        complete(false, nil, error.localizedDescription)
+                    }
+                }
+            }
+            else{
+                complete(false, nil, "The GET Request failed.")
+            }
+        }
     }
     
     func decodeRandomPhoto(url: String, complete: @escaping(_ success: Bool, _ random: RandomPhoto?,_ errorMessage: String?)->()){

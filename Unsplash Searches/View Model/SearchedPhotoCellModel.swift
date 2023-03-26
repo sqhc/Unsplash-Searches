@@ -8,5 +8,6 @@
 import Foundation
 
 struct SearchedPhotoCellModel{
-    
+    let id: String?
+    let photo_url: String?
 }

@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 enum Request{
     case collection
@@ -20,3 +21,5 @@ var searchRandomPhotoLink = "https://api.unsplash.com/photos/random?client_id=py
 var searchUsersLink = "https://api.unsplash.com/search/users?client_id=pyMs87cvZKpi4JmARh-uebHiGE14Ahepb89fQmJ0cvw"
 
 var client_id = "?client_id=pyMs87cvZKpi4JmARh-uebHiGE14Ahepb89fQmJ0cvw"
+
+let photos_cache = NSCache<NSString, UIImage>()
