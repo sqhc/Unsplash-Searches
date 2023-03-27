@@ -13,6 +13,7 @@ class SearchedUserCell: UITableViewCell {
     @IBOutlet weak var RealNameLabel: UILabel!
     @IBOutlet weak var IDLabel: UILabel!
     @IBOutlet weak var updatedDateLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -24,4 +25,12 @@ class SearchedUserCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
+    var cellModel: SearchedUserCellModel?{
+        didSet{
+            UserNameLabel.text = cellModel?.userName
+            RealNameLabel.text = cellModel?.realName
+            IDLabel.text = cellModel?.id
+            updatedDateLabel.text = cellModel?.updatedDate
+        }
+    }
 }

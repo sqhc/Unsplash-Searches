@@ -47,6 +47,7 @@ class SearchUsersView: UIViewController {
             self.present(alertView, animated: true, completion: nil)
         }
         if let vc = storyboard?.instantiateViewController(withIdentifier: "UsersTable") as? SearchedUsersTableView{
+            vc.viewModel.delegate = self.viewModel
             self.navigationController?.pushViewController(vc, animated: true)
         }
     }

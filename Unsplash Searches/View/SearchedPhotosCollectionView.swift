@@ -71,7 +71,9 @@ extension UIImageView{
     func setPhoto(image_link: String){
         DispatchQueue.global(qos: .background).async {
             if let photo = photos_cache.object(forKey: image_link as NSString){
-                self.image = photo
+                DispatchQueue.main.async {
+                    self.image = photo
+                }
             }
             else{
                 guard let image_url = URL(string: image_link) else{
