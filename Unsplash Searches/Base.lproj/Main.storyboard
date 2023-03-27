@@ -494,7 +494,7 @@
         <!--Search for users-->
         <scene sceneID="koY-il-n5t">
             <objects>
-                <viewController storyboardIdentifier="SearchUser" id="Jme-9R-MNr" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SearchUser" id="Jme-9R-MNr" customClass="SearchUsersView" customModule="Unsplash_Searches" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="NR6-jL-2HO">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -546,6 +546,9 @@
                                 <color key="backgroundColor" systemColor="systemGray2Color"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="magnifyingglass.circle.fill" catalog="system" title="Search"/>
+                                <connections>
+                                    <action selector="search:" destination="Jme-9R-MNr" eventType="touchUpInside" id="AXr-4v-5Su"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="3sl-ss-Alh"/>
@@ -571,6 +574,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Search for users" id="uQx-KD-WE1"/>
+                    <connections>
+                        <outlet property="pageTextField" destination="WRn-Th-w6L" id="aAR-Rd-QNq"/>
+                        <outlet property="perPageTextField" destination="iTh-Ad-LpE" id="ws0-Vu-w7p"/>
+                        <outlet property="queryTextField" destination="NaK-Yu-8qU" id="7Yu-hD-iIG"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="58y-8P-QgT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
