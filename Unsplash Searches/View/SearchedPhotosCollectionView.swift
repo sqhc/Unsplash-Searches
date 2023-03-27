@@ -8,7 +8,7 @@
 import UIKit
 import Dispatch
 
-class SearchedPhotosCollectionView: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+class SearchedPhotosCollectionView: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     @IBOutlet weak var photosCollectionView: UICollectionView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -64,6 +64,11 @@ class SearchedPhotosCollectionView: UIViewController, UICollectionViewDelegate, 
         cell?.photoImageView.setPhoto(image_link: cellVM.photo_url!)
         
         return cell!
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let width: CGFloat = collectionView.frame.size.width - 250.0
+        return CGSize(width: width, height: width / 1.1)
     }
 }
 
