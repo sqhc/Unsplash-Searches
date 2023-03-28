@@ -763,6 +763,9 @@
                                                 <constraint firstAttribute="trailing" secondItem="gCw-mq-nQV" secondAttribute="trailing" id="pJf-Wl-wkL"/>
                                             </constraints>
                                         </collectionViewCellContentView>
+                                        <connections>
+                                            <outlet property="userPhotoImageView" destination="gCw-mq-nQV" id="9Tq-nO-3bz"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
@@ -777,6 +780,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Z9O-yR-iki"/>
+                    <connections>
+                        <outlet property="userPhotosCollectionView" destination="3zb-NE-zAW" id="OkC-Uo-ksI"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Guj-wq-7wl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

@@ -73,6 +73,7 @@ class SearchedUsersTableView: UIViewController, UITableViewDelegate, UITableView
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cellVM = viewModel.getViewModel(indexPath: indexPath)
         if let vc = storyboard?.instantiateViewController(withIdentifier: "UserPhotos") as? UserPhotosCollectionView{
+            vc.viewModel.delegate = cellVM
             self.navigationController?.pushViewController(vc, animated: true)
         }
     }

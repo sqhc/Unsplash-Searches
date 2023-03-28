@@ -6,3 +6,7 @@
 //
 
 import Foundation
+
+struct UserPhotoCellViewModel{
+    let userPhotoLink: String?
+}
