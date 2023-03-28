@@ -68,6 +68,15 @@ class APIManager{
                     complete(false, nil, error)
                 }
             })
+        case .collectionPhoto:
+            decodeCollectionPhotos(url: url, complete: { success, collectionPhotos, error in
+                if success{
+                    complete(true, collectionPhotos, nil)
+                }
+                else{
+                    complete(false, nil, error)
+                }
+            })
         }
     }
     
@@ -138,6 +147,26 @@ class APIManager{
                     do{
                         let decoder = JSONDecoder()
                         let model = try decoder.decode(SearchedUsers.self, from: data)
+                        complete(true, model, nil)
+                    }
+                    catch{
+                        complete(false, nil, error.localizedDescription)
+                    }
+                }
+            }
+            else{
+                complete(false, nil, "The GET Request failed.")
+            }
+        }
+    }
+    
+    func decodeCollectionPhotos(url: String, complete: @escaping( _ success: Bool, _ photos: [SearchedPhoto]?, _ errorMessage: String?)->()){
+        getData(url: url){success, data in
+            if success{
+                if let data = data {
+                    do{
+                        let decoder = JSONDecoder()
+                        let model = try decoder.decode([SearchedPhoto].self, from: data)
                         complete(true, model, nil)
                     }
                     catch{

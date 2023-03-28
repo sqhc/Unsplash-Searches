@@ -58,4 +58,11 @@ class CollectionsTableView: UIViewController, UITableViewDelegate, UITableViewDa
         cell?.cellViewModel = viewModel.getCellModel(indexPath: indexPath)
         return cell!
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let cellVM = viewModel.getCellModel(indexPath: indexPath)
+        if let vc = storyboard?.instantiateViewController(withIdentifier: "CollectionPhotos") as? CollectionPhotosCollectionView{
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+    }
 }

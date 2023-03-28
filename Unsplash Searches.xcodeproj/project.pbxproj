@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		06ABEFDE29D377A800844533 /* CollectionPhotosCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06ABEFDD29D377A700844533 /* CollectionPhotosCollectionView.swift */; };
+		06ABEFE029D378D300844533 /* CollectionPhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06ABEFDF29D378D300844533 /* CollectionPhotoCell.swift */; };
+		06ABEFE229D3795900844533 /* CollectionPhotosCollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06ABEFE129D3795900844533 /* CollectionPhotosCollectionViewModel.swift */; };
+		06ABEFE429D379AE00844533 /* CollectionPhotoCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06ABEFE329D379AE00844533 /* CollectionPhotoCellModel.swift */; };
 		06DE6D4929CBFB4400610C84 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06DE6D4829CBFB4400610C84 /* AppDelegate.swift */; };
 		06DE6D4B29CBFB4400610C84 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06DE6D4A29CBFB4400610C84 /* SceneDelegate.swift */; };
 		06DE6D4D29CBFB4400610C84 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06DE6D4C29CBFB4400610C84 /* ViewController.swift */; };
@@ -66,6 +70,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		06ABEFDD29D377A700844533 /* CollectionPhotosCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionPhotosCollectionView.swift; sourceTree = "<group>"; };
+		06ABEFDF29D378D300844533 /* CollectionPhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionPhotoCell.swift; sourceTree = "<group>"; };
+		06ABEFE129D3795900844533 /* CollectionPhotosCollectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionPhotosCollectionViewModel.swift; sourceTree = "<group>"; };
+		06ABEFE329D379AE00844533 /* CollectionPhotoCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionPhotoCellModel.swift; sourceTree = "<group>"; };
 		06DE6D4529CBFB4400610C84 /* Unsplash Searches.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Unsplash Searches.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		06DE6D4829CBFB4400610C84 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		06DE6D4A29CBFB4400610C84 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -209,6 +217,8 @@
 				06DE6D4C29CBFB4400610C84 /* ViewController.swift */,
 				06DE6D8629CDEE0A00610C84 /* CollectionsTableView.swift */,
 				06DE6D8829CDEE4200610C84 /* CollectionsCell.swift */,
+				06ABEFDD29D377A700844533 /* CollectionPhotosCollectionView.swift */,
+				06ABEFDF29D378D300844533 /* CollectionPhotoCell.swift */,
 				06DE6D9429CFD69200610C84 /* SearchPhotosView.swift */,
 				06DE6D9E29D0B2DC00610C84 /* SearchedPhotosCollectionView.swift */,
 				06DE6DA029D0B44E00610C84 /* SearchedPhotoCell.swift */,
@@ -228,6 +238,8 @@
 				06DE6D8229CD251D00610C84 /* CollectionSearchViewModel.swift */,
 				06DE6D8A29CDEEC200610C84 /* CollectionsTableViewModel.swift */,
 				06DE6D8C29CDEEDB00610C84 /* CollectionsCellViewModel.swift */,
+				06ABEFE129D3795900844533 /* CollectionPhotosCollectionViewModel.swift */,
+				06ABEFE329D379AE00844533 /* CollectionPhotoCellModel.swift */,
 				06DE6D9629CFD6DE00610C84 /* PhotoSearchViewModel.swift */,
 				06DE6DA229D0B4D500610C84 /* SearchedPhotosCollectionViewModel.swift */,
 				06DE6DA429D0B4F700610C84 /* SearchedPhotoCellModel.swift */,
@@ -374,6 +386,7 @@
 			files = (
 				06DE6D9B29CFE68A00610C84 /* RandomPhotoViewModel.swift in Sources */,
 				06DE6DA729D0FE6500610C84 /* SearchedUserDataModel.swift in Sources */,
+				06ABEFE029D378D300844533 /* CollectionPhotoCell.swift in Sources */,
 				06DE6DB929D2659900610C84 /* UserPhotosCollectionViewModel.swift in Sources */,
 				06DE6DB329D12A3C00610C84 /* SearchedUserCellModel.swift in Sources */,
 				06DE6D8B29CDEEC200610C84 /* CollectionsTableViewModel.swift in Sources */,
@@ -387,11 +400,13 @@
 				06DE6DAB29D1113000610C84 /* UsersSearchViewModel.swift in Sources */,
 				06DE6D9729CFD6DE00610C84 /* PhotoSearchViewModel.swift in Sources */,
 				06DE6D8929CDEE4200610C84 /* CollectionsCell.swift in Sources */,
+				06ABEFE429D379AE00844533 /* CollectionPhotoCellModel.swift in Sources */,
 				06DE6D9D29D079DD00610C84 /* SearchedPhotoDataModel.swift in Sources */,
 				06DE6D9929CFE46A00610C84 /* RandomPhotoView.swift in Sources */,
 				06DE6D5329CBFB4500610C84 /* Unsplash_Searches.xcdatamodeld in Sources */,
 				06DE6D8029CD1EB800610C84 /* Globals.swift in Sources */,
 				06DE6D4929CBFB4400610C84 /* AppDelegate.swift in Sources */,
+				06ABEFE229D3795900844533 /* CollectionPhotosCollectionViewModel.swift in Sources */,
 				06DE6D8D29CDEEDB00610C84 /* CollectionsCellViewModel.swift in Sources */,
 				06DE6DA329D0B4D500610C84 /* SearchedPhotosCollectionViewModel.swift in Sources */,
 				06DE6D7E29CD1A0600610C84 /* CollectionDataModel.swift in Sources */,
@@ -401,6 +416,7 @@
 				06DE6DB529D264E000610C84 /* UserPhotosCollectionView.swift in Sources */,
 				06DE6DA529D0B4F700610C84 /* SearchedPhotoCellModel.swift in Sources */,
 				06DE6DBB29D265B100610C84 /* UserPhotoCellViewModel.swift in Sources */,
+				06ABEFDE29D377A800844533 /* CollectionPhotosCollectionView.swift in Sources */,
 				06DE6DAD29D11AA500610C84 /* SearchedUsersTableView.swift in Sources */,
 				06DE6D4B29CBFB4400610C84 /* SceneDelegate.swift in Sources */,
 				06DE6D8729CDEE0A00610C84 /* CollectionsTableView.swift in Sources */,

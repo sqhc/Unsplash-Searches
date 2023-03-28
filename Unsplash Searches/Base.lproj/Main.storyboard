@@ -280,10 +280,10 @@
             </objects>
             <point key="canvasLocation" x="-717.39130434782612" y="1186.6071428571429"/>
         </scene>
-        <!--View Controller-->
+        <!--Collection Photos Collection View-->
         <scene sceneID="5og-NB-Cus">
             <objects>
-                <viewController storyboardIdentifier="CollectionPhotos" id="Utj-hA-zDx" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CollectionPhotos" id="Utj-hA-zDx" customClass="CollectionPhotosCollectionView" customModule="Unsplash_Searches" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="CeJ-W6-Rri">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -298,7 +298,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="collectionPhoto" id="6DR-1V-OJu">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="collectionPhoto" id="6DR-1V-OJu" customClass="CollectionPhotoCell" customModule="Unsplash_Searches" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="R2A-e1-17m">
@@ -316,6 +316,9 @@
                                                 <constraint firstAttribute="bottom" secondItem="nVt-0E-kPH" secondAttribute="bottom" id="iUF-9W-Fw5"/>
                                             </constraints>
                                         </collectionViewCellContentView>
+                                        <connections>
+                                            <outlet property="collectionPhotoImageView" destination="nVt-0E-kPH" id="bbM-gg-M7c"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
@@ -330,6 +333,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="3ap-8d-x9Z"/>
+                    <connections>
+                        <outlet property="collectionPhotosCollectionView" destination="1HQ-ND-6yT" id="JvS-7u-NXu"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lyl-7l-bne" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
