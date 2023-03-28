@@ -69,4 +69,11 @@ class SearchedUsersTableView: UIViewController, UITableViewDelegate, UITableView
         
         return cell!
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let cellVM = viewModel.getViewModel(indexPath: indexPath)
+        if let vc = storyboard?.instantiateViewController(withIdentifier: "UserPhotos") as? UserPhotosCollectionView{
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+    }
 }
