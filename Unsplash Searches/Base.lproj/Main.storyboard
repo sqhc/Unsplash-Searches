@@ -258,6 +258,28 @@
                                             <outlet property="collectionTitleLabel" destination="0fV-3Y-nez" id="ayk-Hf-BgE"/>
                                         </connections>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="loadCollections" id="j6m-oq-0Z6" customClass="CollectionLoadingCell" customModule="Unsplash_Searches" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="244.5" width="414" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="j6m-oq-0Z6" id="Kjj-n0-9gx">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="kdL-nu-hY9">
+                                                    <rect key="frame" x="197" y="12" width="20" height="20.5"/>
+                                                </activityIndicatorView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailingMargin" secondItem="kdL-nu-hY9" secondAttribute="trailing" constant="177" id="0OQ-QW-qDC"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="kdL-nu-hY9" secondAttribute="bottom" constant="0.5" id="Dl1-yf-Wcd"/>
+                                                <constraint firstItem="kdL-nu-hY9" firstAttribute="leading" secondItem="Kjj-n0-9gx" secondAttribute="leadingMargin" constant="177" id="R4L-ax-IAS"/>
+                                                <constraint firstItem="kdL-nu-hY9" firstAttribute="top" secondItem="Kjj-n0-9gx" secondAttribute="topMargin" constant="1" id="z1W-ih-dL0"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="loadActivity" destination="kdL-nu-hY9" id="aOO-j3-Wyv"/>
+                                        </connections>
+                                    </tableViewCell>
                                 </prototypes>
                             </tableView>
                         </subviews>
@@ -270,7 +292,19 @@
                             <constraint firstItem="ejd-tj-tKD" firstAttribute="top" secondItem="PVA-Mw-xn3" secondAttribute="top" id="zhp-8O-Fvf"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Searched Collections" id="9YP-xB-R44"/>
+                    <navigationItem key="navigationItem" title="Searched Collections" id="9YP-xB-R44">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="NyT-X7-59B">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="dnX-dC-eP7">
+                                <rect key="frame" x="302" y="5" width="92" height="34.5"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Load"/>
+                                <connections>
+                                    <action selector="loadPagination:" destination="DGq-51-O1m" eventType="touchUpInside" id="jGw-cQ-qng"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="collectionsTable" destination="ejd-tj-tKD" id="6ix-UN-gm6"/>
                         <segue destination="Utj-hA-zDx" kind="show" identifier="showCollectionPhotos" id="faj-fa-tEf"/>

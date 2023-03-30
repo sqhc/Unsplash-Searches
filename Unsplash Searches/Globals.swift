@@ -24,3 +24,5 @@ var searchUsersLink = "https://api.unsplash.com/search/users?client_id=pyMs87cvZ
 var client_id = "?client_id=pyMs87cvZKpi4JmARh-uebHiGE14Ahepb89fQmJ0cvw"
 
 let photos_cache = NSCache<NSString, UIImage>()
+
+let paginate_cache = NSCache<NSNumber, NSString>()
