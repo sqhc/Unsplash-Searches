@@ -10,6 +10,8 @@ import Dispatch
 
 class SearchedPhotosCollectionView: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     @IBOutlet weak var photosCollectionView: UICollectionView!
+    var loading = true
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -23,6 +25,7 @@ class SearchedPhotosCollectionView: UIViewController, UICollectionViewDelegate, 
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         photos_cache.removeAllObjects()
+        paginate_cache.removeAllObjects()
     }
     
     var viewModel: SearchedPhotosCollectionViewModel = {
@@ -30,6 +33,7 @@ class SearchedPhotosCollectionView: UIViewController, UICollectionViewDelegate, 
     }()
     
     func initVM(){
+        viewModel.formAPI()
         viewModel.getPhotos(complete: {[weak self] errorMessage in
             let alert = UIAlertController(title: "Error!", message: errorMessage, preferredStyle: .alert)
             let alertAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
@@ -39,6 +43,7 @@ class SearchedPhotosCollectionView: UIViewController, UICollectionViewDelegate, 
             }
         })
         viewModel.reloadCollectionView = { [weak self] in
+            self?.loading = false
             DispatchQueue.main.async {
                 self?.photosCollectionView.reloadData()
             }
@@ -59,16 +64,43 @@ class SearchedPhotosCollectionView: UIViewController, UICollectionViewDelegate, 
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "searchedPhoto", for: indexPath) as? SearchedPhotoCell
-        let cellVM = viewModel.getCellModel(indexPath: indexPath)
-        cell?.photoImageView.setPhoto(image_link: cellVM.photo_url!)
-        
-        return cell!
+        if loading{
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "loadPhotos", for: indexPath) as? PhotosLoadingCell
+            cell!.photosLoadingActivity.startAnimating()
+            return cell!
+        }
+        else{
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "searchedPhoto", for: indexPath) as? SearchedPhotoCell
+            let cellVM = viewModel.getCellModel(indexPath: indexPath)
+            cell?.photoImageView.setPhoto(image_link: cellVM.photo_url!)
+            
+            return cell!
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width: CGFloat = collectionView.frame.size.width - 250.0
         return CGSize(width: width, height: width / 1.1)
+    }
+    
+    @IBAction func paginate(_ sender: UIButton){
+        loading = true
+        if viewModel.current_page <= viewModel.allPage{
+            viewModel.paginate(page: viewModel.current_page + 1, complete: {[weak self] errorMessage in
+                let alert = UIAlertController(title: "Error!", message: errorMessage, preferredStyle: .alert)
+                let alertAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+                alert.addAction(alertAction)
+                DispatchQueue.main.async { [weak self] in
+                    self?.present(alert, animated: true, completion: nil)
+                }}
+            )
+        }
+        else{
+            let alert = UIAlertController(title: "Reach the end!", message: "This is the last page", preferredStyle: .alert)
+            let alertAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+            alert.addAction(alertAction)
+            self.present(alert, animated: true, completion: nil)
+        }
     }
 }
 

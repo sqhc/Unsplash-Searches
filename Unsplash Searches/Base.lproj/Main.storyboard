@@ -415,6 +415,28 @@
                                             <outlet property="photoImageView" destination="NhE-Xg-SjW" id="SFs-uO-8GE"/>
                                         </connections>
                                     </collectionViewCell>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="loadPhotos" id="Z51-fK-upd" customClass="PhotosLoadingCell" customModule="Unsplash_Searches" customModuleProvider="target">
+                                        <rect key="frame" x="143" y="0.0" width="128" height="128"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="59i-p2-ohI">
+                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="xcg-Yn-3YG">
+                                                    <rect key="frame" x="54" y="54" width="20" height="20"/>
+                                                </activityIndicatorView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="xcg-Yn-3YG" secondAttribute="trailing" constant="54" id="HaG-ua-4G1"/>
+                                                <constraint firstItem="xcg-Yn-3YG" firstAttribute="leading" secondItem="59i-p2-ohI" secondAttribute="leading" constant="54" id="O2J-yR-IHD"/>
+                                                <constraint firstItem="xcg-Yn-3YG" firstAttribute="top" secondItem="59i-p2-ohI" secondAttribute="top" constant="54" id="Wee-tJ-qgJ"/>
+                                                <constraint firstAttribute="bottom" secondItem="xcg-Yn-3YG" secondAttribute="bottom" constant="54" id="eC7-c1-4h6"/>
+                                            </constraints>
+                                        </collectionViewCellContentView>
+                                        <connections>
+                                            <outlet property="photosLoadingActivity" destination="xcg-Yn-3YG" id="RFt-mU-9Pp"/>
+                                        </connections>
+                                    </collectionViewCell>
                                 </cells>
                             </collectionView>
                         </subviews>
@@ -427,7 +449,19 @@
                             <constraint firstItem="YPd-hS-lqg" firstAttribute="bottom" secondItem="cxf-oA-PoM" secondAttribute="bottom" id="uvr-4V-hkC"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Searched Photos" id="g8I-ok-FXO"/>
+                    <navigationItem key="navigationItem" title="Searched Photos" id="g8I-ok-FXO">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="6Rh-7f-8j5">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="BuI-cs-jKa">
+                                <rect key="frame" x="302" y="5" width="92" height="34.5"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Load"/>
+                                <connections>
+                                    <action selector="paginate:" destination="Q9q-j0-aQM" eventType="touchUpInside" id="Dok-yx-jxS"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="photosCollectionView" destination="cxf-oA-PoM" id="qIp-Uw-ecF"/>
                     </connections>
@@ -801,6 +835,25 @@
                                             <outlet property="updatedDateLabel" destination="jMN-MC-bxu" id="0Or-oZ-wDs"/>
                                         </connections>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="loadUsers" id="pXw-DD-46s">
+                                        <rect key="frame" x="0.0" y="367.5" width="414" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="pXw-DD-46s" id="EvJ-qq-7lx">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="0cG-5a-Vot">
+                                                    <rect key="frame" x="197" y="12" width="20" height="20.5"/>
+                                                </activityIndicatorView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottomMargin" secondItem="0cG-5a-Vot" secondAttribute="bottom" constant="0.5" id="JC1-gM-AV1"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="0cG-5a-Vot" secondAttribute="trailing" constant="177" id="XJh-54-oJp"/>
+                                                <constraint firstItem="0cG-5a-Vot" firstAttribute="leading" secondItem="EvJ-qq-7lx" secondAttribute="leadingMargin" constant="177" id="k3I-sG-45F"/>
+                                                <constraint firstItem="0cG-5a-Vot" firstAttribute="top" secondItem="EvJ-qq-7lx" secondAttribute="topMargin" constant="1" id="lwZ-75-cvM"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
                                 </prototypes>
                             </tableView>
                         </subviews>
@@ -813,7 +866,16 @@
                             <constraint firstItem="cxD-U9-8VH" firstAttribute="leading" secondItem="3l3-qB-7Na" secondAttribute="leading" id="zg6-IB-Kv2"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Searched Users" id="q3u-xS-VoA"/>
+                    <navigationItem key="navigationItem" title="Searched Users" id="q3u-xS-VoA">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="cmg-NY-wMN">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="Vq3-Dr-90G">
+                                <rect key="frame" x="302" y="5" width="92" height="34.5"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Load"/>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="UsersTableView" destination="cxD-U9-8VH" id="nXH-2Z-yOx"/>
                         <segue destination="8Dc-t6-ht0" kind="show" identifier="goUserPhotos" id="yK7-oI-H94"/>

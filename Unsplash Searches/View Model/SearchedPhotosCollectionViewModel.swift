@@ -11,6 +11,8 @@ import Dispatch
 class SearchedPhotosCollectionViewModel: NSObject{
     weak var delegate: PhotoSearchVMDelegate!
     var current_page = 1
+    var allPage = 0
+    
     override init() {
         super.init()
     }
@@ -30,16 +32,25 @@ class SearchedPhotosCollectionViewModel: NSObject{
             searchPhotosLink += "&page=\(page)"
             current_page = Int(page) ?? 1
         }
+        else{
+            searchPhotosLink += "&page=1"
+            current_page = 1
+        }
     }
     
     func getPhotos(complete: @escaping (_ errorMessage: String)->()){
-        formAPI()
         DispatchQueue.global(qos: .background).async {
             APIManager().decodeRequest(url: searchPhotosLink, option: .photo, complete: {
                 [weak self] success, photos, error in
                 if success{
                     let photos = photos as! SearchedPhotos
+                    self?.allPage = photos.total_pages!
                     self?.fetchPhoto(photos: photos.results)
+                    while searchPhotosLink.last! != "="{
+                        searchPhotosLink.removeLast()
+                    }
+                    searchPhotosLink += String((self?.current_page)! + 1)
+                    self?.setCacheValue(page: (self?.current_page)! + 1, link: searchPhotosLink)
                 }
                 else{
                     complete(error!)
@@ -63,7 +74,7 @@ class SearchedPhotosCollectionViewModel: NSObject{
             let link = photo.urls.regular!
             vms.append(createCellModel(id: id, link: link))
         }
-        photosCellModels = vms
+        photosCellModels += vms
     }
     
     func createCellModel(id: String, link: String)->SearchedPhotoCellModel{
@@ -72,5 +83,33 @@ class SearchedPhotosCollectionViewModel: NSObject{
     
     func getCellModel(indexPath: IndexPath)-> SearchedPhotoCellModel{
         return photosCellModels[indexPath.row]
+    }
+}
+
+extension SearchedPhotosCollectionViewModel{
+    func setCacheValue(page: Int, link: String){
+        paginate_cache.setObject(link as NSString, forKey: page as NSNumber)
+    }
+    
+    func paginate(page: Int, complete: @escaping (_ errorMessage: String)->()){
+        let url = paginate_cache.object(forKey: page as NSNumber)! as String
+        current_page = page
+        DispatchQueue.global(qos: .background).async {
+            APIManager().decodeRequest(url: url, option: .photo, complete: {
+                [weak self] success, photos, error in
+                if success{
+                    let photos = photos as! SearchedPhotos
+                    self?.fetchPhoto(photos: photos.results)
+                    while searchPhotosLink.last! != "="{
+                        searchPhotosLink.removeLast()
+                    }
+                    searchPhotosLink += String((self?.current_page)! + 1)
+                    self?.setCacheValue(page: (self?.current_page)! + 1, link: searchPhotosLink)
+                }
+                else{
+                    complete(error!)
+                }
+            })
+        }
     }
 }

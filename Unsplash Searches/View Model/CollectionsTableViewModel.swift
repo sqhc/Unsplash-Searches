@@ -41,7 +41,9 @@ class CollectionsTableViewModel: NSObject{
                     let collections = collection as! Collections
                     self?.allPage = collections.total_pages!
                     self?.fetchCollection(collections: collections.results)
-                    searchCollectionsLink.removeLast()
+                    while searchCollectionsLink.last! != "="{
+                        searchCollectionsLink.removeLast()
+                    }
                     searchCollectionsLink += String((self?.currentPage)! + 1)
                     self?.setCacheValue(page: (self?.currentPage)! + 1, link: searchCollectionsLink)
                 }
@@ -96,7 +98,9 @@ extension CollectionsTableViewModel{
                 if success{
                     let collections = collections as! Collections
                     self?.fetchCollection(collections: collections.results)
-                    searchCollectionsLink.removeLast()
+                    while searchCollectionsLink.last! != "="{
+                        searchCollectionsLink.removeLast()
+                    }
                     searchCollectionsLink += String((self?.currentPage)! + 1)
                     self?.setCacheValue(page: (self?.currentPage)! + 1, link: searchCollectionsLink)
                 }
