@@ -835,7 +835,7 @@
                                             <outlet property="updatedDateLabel" destination="jMN-MC-bxu" id="0Or-oZ-wDs"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="loadUsers" id="pXw-DD-46s">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="loadUsers" id="pXw-DD-46s" customClass="UsersLoadingCell" customModule="Unsplash_Searches" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="367.5" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="pXw-DD-46s" id="EvJ-qq-7lx">
@@ -853,6 +853,9 @@
                                                 <constraint firstItem="0cG-5a-Vot" firstAttribute="top" secondItem="EvJ-qq-7lx" secondAttribute="topMargin" constant="1" id="lwZ-75-cvM"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="userLoadingActivity" destination="0cG-5a-Vot" id="Ee0-aj-biC"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -873,6 +876,9 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Load"/>
+                                <connections>
+                                    <action selector="loadPaginate:" destination="Oyy-OO-1V9" eventType="touchUpInside" id="Hws-RN-HmC"/>
+                                </connections>
                             </button>
                         </barButtonItem>
                     </navigationItem>

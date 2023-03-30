@@ -13,6 +13,7 @@
 		06ABEFE429D379AE00844533 /* CollectionPhotoCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06ABEFE329D379AE00844533 /* CollectionPhotoCellModel.swift */; };
 		06ABEFE829D5098B00844533 /* CollectionLoadingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06ABEFE729D5098B00844533 /* CollectionLoadingCell.swift */; };
 		06ABEFEA29D5372000844533 /* PhotosLoadingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06ABEFE929D5372000844533 /* PhotosLoadingCell.swift */; };
+		06ABEFEC29D53F3A00844533 /* UsersLoadingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06ABEFEB29D53F3A00844533 /* UsersLoadingCell.swift */; };
 		06DE6D4929CBFB4400610C84 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06DE6D4829CBFB4400610C84 /* AppDelegate.swift */; };
 		06DE6D4B29CBFB4400610C84 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06DE6D4A29CBFB4400610C84 /* SceneDelegate.swift */; };
 		06DE6D4D29CBFB4400610C84 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06DE6D4C29CBFB4400610C84 /* ViewController.swift */; };
@@ -78,6 +79,7 @@
 		06ABEFE329D379AE00844533 /* CollectionPhotoCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionPhotoCellModel.swift; sourceTree = "<group>"; };
 		06ABEFE729D5098B00844533 /* CollectionLoadingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionLoadingCell.swift; sourceTree = "<group>"; };
 		06ABEFE929D5372000844533 /* PhotosLoadingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosLoadingCell.swift; sourceTree = "<group>"; };
+		06ABEFEB29D53F3A00844533 /* UsersLoadingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersLoadingCell.swift; sourceTree = "<group>"; };
 		06DE6D4529CBFB4400610C84 /* Unsplash Searches.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Unsplash Searches.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		06DE6D4829CBFB4400610C84 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		06DE6D4A29CBFB4400610C84 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -232,6 +234,7 @@
 				06DE6DA829D110F000610C84 /* SearchUsersView.swift */,
 				06DE6DAC29D11AA500610C84 /* SearchedUsersTableView.swift */,
 				06DE6DAE29D11AE800610C84 /* SearchedUserCell.swift */,
+				06ABEFEB29D53F3A00844533 /* UsersLoadingCell.swift */,
 				06DE6DB429D264E000610C84 /* UserPhotosCollectionView.swift */,
 				06DE6DB629D264F900610C84 /* UserPhotoCell.swift */,
 			);
@@ -391,6 +394,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				06ABEFEA29D5372000844533 /* PhotosLoadingCell.swift in Sources */,
+				06ABEFEC29D53F3A00844533 /* UsersLoadingCell.swift in Sources */,
 				06DE6D9B29CFE68A00610C84 /* RandomPhotoViewModel.swift in Sources */,
 				06DE6DA729D0FE6500610C84 /* SearchedUserDataModel.swift in Sources */,
 				06ABEFE029D378D300844533 /* CollectionPhotoCell.swift in Sources */,

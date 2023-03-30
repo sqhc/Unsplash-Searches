@@ -10,6 +10,7 @@ import Dispatch
 
 class SearchedUsersTableView: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var UsersTableView: UITableView!
+    var loading = true
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -23,6 +24,7 @@ class SearchedUsersTableView: UIViewController, UITableViewDelegate, UITableView
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         photos_cache.removeAllObjects()
+        paginate_cache.removeAllObjects()
     }
     
     var viewModel: SearchedUsersTableViewModel = {
@@ -39,6 +41,7 @@ class SearchedUsersTableView: UIViewController, UITableViewDelegate, UITableView
             }
         })
         viewModel.reloadTableView = { [weak self] in
+            self?.loading = false
             DispatchQueue.main.async {
                 self?.UsersTableView.reloadData()
             }
@@ -61,13 +64,20 @@ class SearchedUsersTableView: UIViewController, UITableViewDelegate, UITableView
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "searhedUser", for: indexPath) as? SearchedUserCell
-        
-        let cellVM = viewModel.getViewModel(indexPath: indexPath)
-        cell!.cellModel = cellVM
-        cell!.UserProfileImageView.setPhoto(image_link: cellVM.profileImageLink!)
-        
-        return cell!
+        if loading{
+            let cell = tableView.dequeueReusableCell(withIdentifier: "loadUsers", for: indexPath) as? UsersLoadingCell
+            cell!.userLoadingActivity.startAnimating()
+            return cell!
+        }
+        else{
+            let cell = tableView.dequeueReusableCell(withIdentifier: "searhedUser", for: indexPath) as? SearchedUserCell
+            
+            let cellVM = viewModel.getViewModel(indexPath: indexPath)
+            cell!.cellModel = cellVM
+            cell!.UserProfileImageView.setPhoto(image_link: cellVM.profileImageLink!)
+            
+            return cell!
+        }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -75,6 +85,26 @@ class SearchedUsersTableView: UIViewController, UITableViewDelegate, UITableView
         if let vc = storyboard?.instantiateViewController(withIdentifier: "UserPhotos") as? UserPhotosCollectionView{
             vc.viewModel.delegate = cellVM
             self.navigationController?.pushViewController(vc, animated: true)
+        }
+    }
+    
+    @IBAction func loadPaginate(_ sender: UIButton){
+        loading = true
+        if viewModel.currentPage <= viewModel.total_page{
+            viewModel.paginate(page: viewModel.currentPage + 1, complete: {[weak self] errorMessage in
+                let alert = UIAlertController(title: "Error!", message: errorMessage, preferredStyle: .alert)
+                let alertAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+                alert.addAction(alertAction)
+                DispatchQueue.main.async { [weak self] in
+                    self?.present(alert, animated: true, completion: nil)
+                }}
+            )
+        }
+        else{
+            let alert = UIAlertController(title: "Reach the end!", message: "This is the last page", preferredStyle: .alert)
+            let alertAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+            alert.addAction(alertAction)
+            self.present(alert, animated: true, completion: nil)
         }
     }
 }
